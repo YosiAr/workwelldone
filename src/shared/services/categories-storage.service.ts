@@ -19,7 +19,7 @@ export class CategoriesStorageService {
       this.categoryList.addCategory(arr[i]);
     }
   }
-  getCategories(): Map<string, Category> {
+  getCategories(): Set<string> {
     return this.categoryList.getCategories();
   }
   checkCategoryName(name: string): boolean {

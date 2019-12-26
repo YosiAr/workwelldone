@@ -83,11 +83,11 @@ export class CategoriesHomeComponent implements OnDestroy {
       }
     });
     const categories = this.css.getCategories();
-    const iterator: IterableIterator<Category> = categories.values();
+    const iterator: IterableIterator<string> = categories.values();
     let value = iterator.next().value;
     while ( value != undefined ) {
-      this.categories.push(value.name);
-      this.categoriesMap.set(value.name, this.categories.length - 1);
+      this.categories.push(value);
+      this.categoriesMap.set(value, this.categories.length - 1);
       value = iterator.next().value;
     }
   }

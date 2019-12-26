@@ -12,9 +12,9 @@ export class Category {
   }
 }
 export class CategoryList {
-  private categories: Map<string, Category>;
+  private categories: Set<string>;
   constructor() {
-    this.categories = new Map();
+    this.categories = new Set();
   }
   addCategory(name: string): string {
     name = name.trim();
@@ -22,7 +22,7 @@ export class CategoryList {
     if (this.categories.has(name)) {
       return '';
     } else {
-      this.categories.set(name, new Category(name));
+      this.categories.add(name);
       const cat = JSON.parse(localStorage.getItem('categories')) || {};
       cat[name] = true;
       localStorage.setItem('categories', JSON.stringify(cat));
@@ -45,7 +45,7 @@ export class CategoryList {
     newName = newName.trim();
     newName = newName.toUpperCase();
     if (this.categories.has(name) && !this.categories.has(newName)) {
-      this.categories.set(newName, new Category(newName));
+      this.categories.add(newName);
       this.categories.delete(name);
       const cat = JSON.parse(localStorage.getItem('categories')) || {};
       delete(cat[name]);
@@ -63,7 +63,7 @@ export class CategoryList {
   getLength(): number {
     return this.categories.size;
   }
-  getCategories(): Map<string, Category> {
+  getCategories(): Set<string> {
     return this.categories;
   }
 }
