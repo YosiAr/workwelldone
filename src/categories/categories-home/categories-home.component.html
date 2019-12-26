@@ -5,7 +5,7 @@
     ></router-outlet>
   </section>
   <aside>
-      <mat-list (wheel) = "this.onScroll($event)">
+      <mat-list>
         <ng-container *ngFor = "let category of this.categories">
           <mat-list-item  (click) = "this.select(category)" 
           [ngClass] = "{'selected' : this.selected == category}">
@@ -14,5 +14,6 @@
           </mat-list-item>
         </ng-container>
       </mat-list>
+      <h6>{{ 'Total: ' + this.categories.length}}</h6>
   </aside>
 </article>

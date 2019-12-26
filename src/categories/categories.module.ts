@@ -10,6 +10,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [CategoriesHomeComponent, CategoriesCreateComponent, CategoriesViewComponent],
@@ -21,7 +22,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatDividerModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ]
 })
 export class CategoriesModule { }

@@ -62,6 +62,7 @@ export class CategoriesHomeComponent implements OnDestroy {
         }
         case 'create': {
           this.categories.push(data.value.name);
+          this.categories.sort();
           this.selected = data.value.name;
           this.router.navigate(['../main/categories/edit/' + data.value.name]);
           break;
@@ -70,6 +71,11 @@ export class CategoriesHomeComponent implements OnDestroy {
           this.categories.splice(this.categoriesMap.get(data.value.name), 1, data.value.newName);
           this.categoriesMap.set(data.value.newName, this.categoriesMap.get(data.value.name));
           this.categoriesMap.delete(data.value.name);
+          this.categories.sort();
+          this.categoriesMap = new Map();
+          for ( let i = 0; i < this.categories.length; i++ ) {
+            this.categoriesMap.set(this.categories[i], i);
+          }
           this.selected = data.value.newName;
           this.router.navigate(['../main/categories/edit/' + data.value.newName]);
           break;
@@ -105,7 +111,6 @@ export class CategoriesHomeComponent implements OnDestroy {
     this.sub2.unsubscribe();
   }
   onActivate(e) {
-    console.log(e);
     if (e.action) {
       this.selected = e.action;
       this.ms.setHeader(e.action);

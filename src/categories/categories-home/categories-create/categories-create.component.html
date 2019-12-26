@@ -4,13 +4,13 @@
       <mat-card-title>{{ this.type == 'new' ? 'Add Category' : 'Edit Category' }}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form class="example-form">
+      <section class="example-form">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Name" [attr.id] = "this.action + 'kkk'"
-          [value] = "this.input" type="text" autocomplete="off"
-          (input) = "this.checkInput($event.target.value)">
+          [formControl] = "this.input" type="text" autocomplete="off"
+          (input) = "this.checkInput($event.target.value)" maxlength="16">
         </mat-form-field>
-      </form>
+      </section>
     </mat-card-content>
     <mat-card-actions>   
       <button (mouseover) = "this.color = 'accent'" 

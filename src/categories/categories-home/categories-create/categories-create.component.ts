@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesStorageService } from 'src/shared/services/categories-storage.service';
 import { EventC } from 'src/categories/models/category-models';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-categories-create',
@@ -12,7 +13,7 @@ import { EventC } from 'src/categories/models/category-models';
 export class CategoriesCreateComponent implements OnDestroy, AfterViewInit {
   private sub: Subscription;
   private sub2: Subscription;
-  private input = '';
+  private input: FormControl = new FormControl('');
   protected action = '';
   protected type = '';
   protected color = 'primary';
@@ -29,7 +30,7 @@ export class CategoriesCreateComponent implements OnDestroy, AfterViewInit {
         if (!this.css.checkCategoryName(this.action)) {
           this.router.navigate(['../main/categories']);
         }
-        this.input = this.action;
+        this.input.setValue(this.action);
       }
     });
     this.sub2 = this.css.storageEmitter.subscribe( (data: EventC) => {
@@ -43,15 +44,15 @@ export class CategoriesCreateComponent implements OnDestroy, AfterViewInit {
     this.sub2.unsubscribe();
   }
   checkInput(input: string) {
-    this.input = input;
+    // this.input = input;
     this.active = this.css.checkCategoryName(input);
   }
   save() {
     if (this.type == 'new') {
-      this.css.addCategory(this.input);
+      this.css.addCategory(this.input.value);
     }
     if (this.type == 'edit') {
-      this.css.editCategory(this.action, this.input);
+      this.css.editCategory(this.action, this.input.value);
     }
   }
   ngAfterViewInit(): void {

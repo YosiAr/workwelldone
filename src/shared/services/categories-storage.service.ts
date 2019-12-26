@@ -16,7 +16,7 @@ export class CategoriesStorageService {
     const cat = JSON.parse(localStorage.getItem('categories')) || {};
     const arr = Object.keys(cat);
     for ( let i = 0; i < arr.length ; i++ ) {
-      this.categoryList.addCategory(cat[arr[i]]);
+      this.categoryList.addCategory(arr[i]);
     }
   }
   getCategories(): Map<string, Category> {
@@ -43,9 +43,7 @@ export class CategoriesStorageService {
     return false;
   }
   deleteCategory(name: string): boolean {
-    console.log(name);
     const result = this.categoryList.deleteCategory(name);
-    console.log(result);
     if (result) {
       const data = {
         type: 'delete',
@@ -59,8 +57,6 @@ export class CategoriesStorageService {
   }
   editCategory(name: string, newName: string) {
     const result = this.categoryList.editCategoryName(name, newName);
-    console.log(result);
-    console.log(name);
     if (result) {
       const data = {
         type: 'update',
