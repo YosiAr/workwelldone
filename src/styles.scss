@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import 'purple-green.scss';
+*{
+    font-family: 'Open Sans', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 1em;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  // -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

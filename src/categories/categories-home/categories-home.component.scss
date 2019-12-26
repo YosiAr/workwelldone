@@ -1,0 +1,67 @@
+
+article{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  aside{
+    min-width: 20%;
+    height: calc(58px * 7);
+    width: fit-content;
+    border-left: solid 4px #9c27b0;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    mat-list{
+      width: 90%;
+      // overflow: auto;
+    }
+    .myScroll{
+      position: absolute;
+      right: -16%;
+      top:0;
+      overflow: auto;
+      height: 100%;
+      width: 5px;
+      .contentDiv{
+        width: 1px;
+        height:200vh;
+      }
+    }
+    mat-list-item{
+      display: flex;
+      flex-direction: row;
+      .mat-list-icon {
+        cursor: pointer;
+        color: rgba(255, 255, 255, 255.54);
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+      }
+      p{
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      p:hover{
+        color: #9c27b0;
+      }
+    }
+    .selected{
+      p{
+        cursor: default;
+        color:white;
+      }
+      p:hover{
+        cursor: default;
+        color:white;
+      }
+      .mat-list-icon {
+        cursor: default;
+        color:white;
+      }
+    }
+  }
+  section{
+    width: 80%;
+  }
+}

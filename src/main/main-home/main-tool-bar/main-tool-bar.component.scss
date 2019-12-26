@@ -1,0 +1,48 @@
+@import 'variables.scss';
+mat-toolbar{
+  width: 100vw;
+  height: 4vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 4vw;
+  text-transform: uppercase;
+  font-size: calc(0.6em + 0.5vw);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: $fontColor;
+  h1{
+    font-size: calc(0.8em + 1vw);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+  }
+  nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    min-width: fit-content;
+    height: 4vw;
+    padding: 0 0 0 2%;  
+    .selected{
+      color: $color1;
+      font-weight: bold;
+      cursor: default;
+    }
+    a{
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+      letter-spacing: 0.03vw;
+      display: block;
+      color: $fontColor;
+      margin: 0 0 0 4%;  
+      cursor: pointer;
+    }
+    a:hover{
+      color: $color1;
+    }
+  }
+}

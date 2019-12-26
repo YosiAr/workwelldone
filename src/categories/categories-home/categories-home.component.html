@@ -1,0 +1,18 @@
+<article>
+  <section>
+    <router-outlet (activate) = 'onActivate($event)'
+    (deactivate)='onDeactivate($event)'
+    ></router-outlet>
+  </section>
+  <aside>
+      <mat-list (wheel) = "this.onScroll($event)">
+        <ng-container *ngFor = "let category of this.categories">
+          <mat-list-item  (click) = "this.select(category)" 
+          [ngClass] = "{'selected' : this.selected == category}">
+            <mat-icon mat-list-icon>note</mat-icon>
+            <p>{{ category }}</p>
+          </mat-list-item>
+        </ng-container>
+      </mat-list>
+  </aside>
+</article>

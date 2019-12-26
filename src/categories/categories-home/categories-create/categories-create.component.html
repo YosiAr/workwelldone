@@ -1,0 +1,22 @@
+<article>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{ this.type == 'new' ? 'Add Category' : 'Edit Category' }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Name" [attr.id] = "this.action + 'kkk'"
+          [value] = "this.input" type="text" autocomplete="off"
+          (input) = "this.checkInput($event.target.value)">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>   
+      <button (mouseover) = "this.color = 'accent'" 
+      (mouseleave) = "this.color = 'primary'" 
+       mat-raised-button [disabled] = "this.active" 
+       [color] = "this.color" (click) = "this.save()">{{ this.type == 'new' ? 'Add' : 'Save' }}</button>
+    </mat-card-actions>
+  </mat-card>
+</article>

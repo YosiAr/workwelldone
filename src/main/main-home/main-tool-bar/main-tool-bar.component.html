@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <h1>{{this.input.header}}</h1>
+  <nav>
+    <a [ngClass] = "{'selected': this.input.selected == action}" 
+    *ngFor="let action of this.input.actions" 
+    (click) = "this.actionClick(action)">
+      {{action}}
+    </a>
+  </nav>
+</mat-toolbar>
