@@ -14,7 +14,12 @@ export class Category {
 export class CategoryList {
   private categories: Set<string>;
   constructor() {
-    this.categories = new Set();
+    this.getCategoriesFromStorage();
+  }
+  getCategoriesFromStorage() {
+    const cat = JSON.parse(localStorage.getItem('categories')) || {};
+    const arr = Object.keys(cat);
+    this.categories = new Set(arr);
   }
   addCategory(name: string): string {
     name = name.trim();

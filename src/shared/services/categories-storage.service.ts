@@ -10,14 +10,6 @@ export class CategoriesStorageService {
   public storageEmitter: Subject<any> = new Subject();
   constructor() {
     this.categoryList = new CategoryList();
-    this.getCategoriesFromStorage();
-  }
-  getCategoriesFromStorage() {
-    const cat = JSON.parse(localStorage.getItem('categories')) || {};
-    const arr = Object.keys(cat);
-    for ( let i = 0; i < arr.length ; i++ ) {
-      this.categoryList.addCategory(arr[i]);
-    }
   }
   getCategories(): Set<string> {
     return this.categoryList.getCategories();
